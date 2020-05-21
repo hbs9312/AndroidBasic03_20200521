@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -28,6 +29,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setEvents() {
+
+        binding.callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                전화걸기 등 안드로이드 => Uri 정보 요구.
+
+                Uri myUri = Uri.parse("tel:010-8697-2294");
+                Intent myIntent = new Intent(Intent.ACTION_DIAL, myUri);
+                startActivity(myIntent);
+
+            }
+        });
 
         binding.editEmailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +109,9 @@ public class MainActivity extends BaseActivity {
 
                     binding.userEmailTxt.setText(email);
                 }
+            }
+            else {
+                Toast.makeText(mContext, "이메일 변경이 취소되었습니다.", Toast.LENGTH_SHORT).show();
             }
         }
 
