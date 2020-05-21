@@ -16,12 +16,14 @@
             android:text="전화번호 수정" />
 
         <EditText
+            android:id="@+id/phoneNumEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:hint="새전화번호 입력" />
 
         <Button
+            android:id="@+id/editBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="전화번호 수정" />
