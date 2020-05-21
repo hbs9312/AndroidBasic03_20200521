@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setEvents() {
 
-        binding.callBtn.setOnClickListener(new View.OnClickListener() {
+        binding.dialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -40,6 +40,21 @@ public class MainActivity extends BaseActivity {
 
                 Uri myUri = Uri.parse(String.format("tel:%s", dialPhoneNum));
                 Intent myIntent = new Intent(Intent.ACTION_DIAL, myUri);
+                startActivity(myIntent);
+
+            }
+        });
+
+        binding.callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                전화걸기 등 안드로이드 => Uri 정보 요구.
+
+                String dialPhoneNum = binding.userPhoneTxt.getText().toString();
+
+                Uri myUri = Uri.parse(String.format("tel:%s", dialPhoneNum));
+                Intent myIntent = new Intent(Intent.ACTION_CALL, myUri);
                 startActivity(myIntent);
 
             }
