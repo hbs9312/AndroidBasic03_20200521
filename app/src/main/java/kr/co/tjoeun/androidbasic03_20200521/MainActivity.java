@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import kr.co.tjoeun.androidbasic03_20200521.databinding.ActivityMainBinding;
 
@@ -16,7 +17,7 @@ public class MainActivity extends BaseActivity {
 
     final int REQ_FOR_PHONE_NUM = 1002;
     final int REQ_FOR_NICKNAME = 1001;
-
+    final int REQ_FOR_EMAIL = 1003;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,14 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setEvents() {
+
+        binding.editEmailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mContext, EditUserEmailActivity.class);
+                startActivityForResult(myIntent, REQ_FOR_EMAIL);
+            }
+        });
 
         binding.editPhoneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +71,30 @@ public class MainActivity extends BaseActivity {
 
                 binding.userNickNameTxt.setText(nick);
 
+            }
+        }
+        else if (requestCode == REQ_FOR_PHONE_NUM) {
+            if (resultCode == RESULT_OK) {
+                if(data != null) {
+
+                    String phoneNum = data.getStringExtra("phone");
+
+                    binding.userPhoneTxt.setText(phoneNum);
+
+                }
+
+            }
+            else {
+                Toast.makeText(mContext, "전화번호 변경이 취소되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        else if (requestCode == REQ_FOR_EMAIL) {
+            if(resultCode == RESULT_OK) {
+                if(data != null) {
+                    String email = data.getStringExtra("email");
+
+                    binding.userEmailTxt.setText(email);
+                }
             }
         }
 
