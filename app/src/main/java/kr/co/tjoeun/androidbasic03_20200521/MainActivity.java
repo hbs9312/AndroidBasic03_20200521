@@ -36,7 +36,9 @@ public class MainActivity extends BaseActivity {
 
 //                전화걸기 등 안드로이드 => Uri 정보 요구.
 
-                Uri myUri = Uri.parse("tel:010-8697-2294");
+                String dialPhoneNum = binding.userPhoneTxt.getText().toString();
+
+                Uri myUri = Uri.parse(String.format("tel:%s", dialPhoneNum));
                 Intent myIntent = new Intent(Intent.ACTION_DIAL, myUri);
                 startActivity(myIntent);
 

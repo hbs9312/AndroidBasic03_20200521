@@ -74,7 +74,7 @@
                 android:id="@+id/userPhoneTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="N/A"
+                android:text="010111122222"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -114,7 +114,7 @@
                 android:id="@+id/userEmailTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="N/A"
+                android:text="tje0521@naver.com"
                 android:textSize="18sp"
                 android:textColor="#000000"/>
 
