@@ -132,11 +132,19 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/callBtn"
+        android:id="@+id/callBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="전화 바로 걸기" />
+
+        <Button
+            android:id="@+id/smsBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="전화 바로 걸기" />
+            android:layout_marginTop="30dp"
+            android:text="문자 전송 화면" />
+
 
     </LinearLayout>
 </layout>
